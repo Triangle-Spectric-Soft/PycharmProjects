@@ -22,6 +22,44 @@ print(mysplit("abc "))
 # Вивід: []
 print(mysplit("   "))
 
+#Приклад 2
+number_dict = {'1': ('  #', '  #', '  #', '  #', '  #'),
+               '2': ('###', '  #', '###', '#  ', '###'),
+               '3': ('###', '  #', '###', '  #', '###'),
+               '4': ('# #', '# #', '###', '  #', '  #'),
+               '5': ('###', '#  ', '###', '  #', '###'),
+               '6': ('###', '#  ', '###', '# #', '###'),
+               '7': ('###', '  #', '  #', '  #', '  #'),
+               '8': ('###', '# #', '###', '# #', '###'),
+               '9': ('###', '# #', '###', '  #', '###'),
+               '0': ('###', '# #', '# #', '# #', '###')}
+
+
+def display_number(num):
+    if num < 0:
+        print("Число має бути невід'ємним.")
+        return
+
+    num_str = str(num)
+
+    for level in range(5):
+        for symbol in num_str:
+            print(number_dict[symbol][level], end=' ')
+        print()
+
+
+while True:
+    number_input = input('Введіть ціле число (або "q" для виходу): ')
+
+    if number_input.lower() == 'q':
+        break
+
+    try:
+        number = int(number_input)
+        display_number(number)
+    except ValueError:
+        print("Введено неправильне число.")
+
 #Приклад 3
 text = input("Enter your message: ")
 cipher = ''
